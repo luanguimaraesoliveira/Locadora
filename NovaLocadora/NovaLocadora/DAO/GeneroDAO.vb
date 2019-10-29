@@ -50,7 +50,7 @@ Public Class GeneroDAO
 
     End Function
 
-    Function insert(ByVal genero As MGeneros)
+    Sub insert(ByVal genero As MGeneros)
         Dim objconn As New SqlConnection(strSql)
         objconn.Open()
 
@@ -58,10 +58,10 @@ Public Class GeneroDAO
         Dim objcmd As New SqlCommand(sql, objconn)
         objcmd.Parameters.AddWithValue("@nome", genero.Nome)
         objcmd.ExecuteNonQuery()
-        Return genero
-    End Function
 
-    Public Function edit(ByVal genero As MGeneros)
+    End Sub
+
+    Public Sub edit(ByVal genero As MGeneros)
         Dim objconn As New SqlConnection(strSql)
         objconn.Open()
         Dim sql As String = "Update Genero set  Nome = @nome where Id = @id"
@@ -70,6 +70,16 @@ Public Class GeneroDAO
         objcmd.Parameters.AddWithValue("@id", genero.Id)
         objcmd.Parameters.AddWithValue("@nome", genero.Nome)
         objcmd.ExecuteNonQuery()
-        Return umgenero
-    End Function
+
+    End Sub
+
+    Public Sub Delete(ByVal id As Integer)
+        Dim objconn As New SqlConnection(strSql)
+        objconn.Open()
+        Dim sql As String = "delete from Genero where id = @id"
+        Dim objcmd As New SqlCommand(sql, objconn)
+        objcmd.Parameters.AddWithValue("@id", id)
+        objcmd.ExecuteNonQuery()
+
+    End Sub
 End Class

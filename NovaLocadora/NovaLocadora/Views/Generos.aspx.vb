@@ -29,11 +29,19 @@
     End Sub
 
     Protected Sub GenerosGridView_RowCommand(sender As Object, e As GridViewCommandEventArgs)
+        Dim dao As New GeneroDAO()
         If e.CommandName.Equals("edit") Then
             Dim index As Integer = Convert.ToInt32(e.CommandArgument)
             Dim row As GridViewRow = GenerosGridView.Rows(index)
             Dim id As Integer = row.Cells(1).Text
             Response.Redirect("/Views/GeneroNovo.aspx?id=" & id)
+        End If
+        If e.CommandName.Equals("delete") Then
+            Dim index As Integer = Convert.ToInt32(e.CommandArgument)
+            Dim row As GridViewRow = GenerosGridView.Rows(index)
+            Dim id As Integer = row.Cells(1).Text
+            dao.Delete(id)
+            Response.Redirect("/Views/Generos.aspx")
         End If
     End Sub
 End Class
