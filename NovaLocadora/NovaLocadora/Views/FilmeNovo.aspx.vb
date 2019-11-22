@@ -9,10 +9,15 @@ Public Class MFilmeNovo
             cboGenero.DataTextField = "Nome"
             cboGenero.DataValueField = "Id"
             cboGenero.DataSource = dao.Items()
+            populagridview()
             cboGenero.DataBind()
+            GridFilme1.DataBind()
         End If
     End Sub
-
+    Sub populagridview()
+        Dim dao As New FilmeDAO()
+        GridFilme1.DataSource = dao.Listagem()
+    End Sub
 
 
     Protected Sub btnCancelar_Click(sender As Object, e As EventArgs)
@@ -31,7 +36,7 @@ Public Class MFilmeNovo
             dvd.Id = cboGenero.SelectedValue()
             Dim dao As New FilmeDAO()
             dao.inset(dvd)
-            Response.Redirect("/Views/Filmes.aspx")
+            Response.Redirect("/Views/FilmeNovo.aspx")
         Else
             Dim dvd As New MDVD
             dvd.Id = id
@@ -42,5 +47,11 @@ Public Class MFilmeNovo
             Response.Redirect("/Views/Filmes.aspx")
         End If
 
+    End Sub
+
+    Protected Sub GridFilme1_RowCreated(sender As Object, e As GridViewRowEventArgs)
+        If e.Row.Cells.Count > 1 Then
+            e.Row.Cells(1).Visible = False
+        End If
     End Sub
 End Class

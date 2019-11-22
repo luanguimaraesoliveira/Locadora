@@ -442,6 +442,15 @@ Campo gerado automaticamente.
 Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
 </remarks>
 </member>
+<member name="F:NovaLocadora.MFilmeNovo._GridFilme1">
+<summary>
+Controle GridFilme1.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
 <member name="F:NovaLocadora.MGeneroNovoaspx._Label1">
 <summary>
 Controle Label1.

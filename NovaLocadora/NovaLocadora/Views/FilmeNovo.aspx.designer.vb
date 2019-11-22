@@ -66,4 +66,13 @@ Partial Public Class MFilmeNovo
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
     Protected WithEvents btnCancelar As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''Controle GridFilme1.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents GridFilme1 As Global.System.Web.UI.WebControls.GridView
 End Class

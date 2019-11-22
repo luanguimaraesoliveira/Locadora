@@ -1,13 +1,16 @@
-﻿Imports NovaLocadora.DAO
+﻿Imports System.Threading
+Imports NovaLocadora.DAO
 
 Public Class Filmes
     Inherits System.Web.UI.Page
+
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         If Not IsPostBack Then
             PopulaGridView()
         End If
+
 
     End Sub
 
@@ -43,4 +46,5 @@ Public Class Filmes
             Response.Redirect("/Views/Filmes.aspx")
         End If
     End Sub
+
 End Class
